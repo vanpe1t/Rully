@@ -4,7 +4,7 @@ import Drivers.*;
 
 import java.util.Objects;
 
-public class Transport {
+public class Transport<A extends Driver> {
 
     private final String brand;
     private final String model;
@@ -14,6 +14,34 @@ public class Transport {
         this.brand = brand;
         this.model = model;
         this.engineValue = engineValue;
+    }
+
+    public void start(A driver) {
+
+        System.out.println("Водитель " + driver.getName() + " управляет транспортным средством типа: " + getTransportType(driver)
+                    + ", марки: " + getBrand() + ", модель: " +  getModel() + " и будет участвовать в заезде");
+    }
+
+    public void stop(A driver) {
+        System.out.println("Водитель " + driver.getName() + " закончил управлять транспортным средством типа: " + getTransportType(driver)
+                + ", марки: " + getBrand() + ", модель: " +  getModel() + " и будет участвовать в заезде");
+    }
+
+    private String getTransportType(Driver driver) {
+
+        String transportType= "";
+
+        if (driver instanceof DriverD) {
+            transportType = "автобус";
+        } else if (driver instanceof DriverB) {
+            transportType = "легковой автомобиль";
+        } else if (driver instanceof DriverC) {
+            transportType = "грузовой автомобиль";
+        } else {
+            transportType = "unknown";
+        }
+
+        return transportType;
     }
 
     @Override
