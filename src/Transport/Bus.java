@@ -6,8 +6,26 @@ import Drivers.DriverD;
 
 public class Bus extends Transport<DriverD> implements Competing {
 
+    private BusСapacity type;
+
     public Bus(String brand, String model, int engineValue) {
         super(brand, model, engineValue);
+    }
+
+    public void setType(BusСapacity type) {
+        this.type = type;
+    }
+
+    public BusСapacity getType() {
+        return type;
+    }
+
+    public void printType() {
+        if (type != null) {
+            System.out.println(type);
+        } else {
+            System.out.println("Данных по транспортному средству недостаточно");
+        }
     }
 
     @Override
