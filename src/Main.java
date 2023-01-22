@@ -1,5 +1,10 @@
 import Drivers.*;
 import Transport.*;
+import com.sun.source.tree.NewArrayTree;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,6 +50,7 @@ public class Main {
         System.out.println(carLadaKalina);
         Car carLadaVesta = new Car("Lada", "Vesta", 150);
         System.out.println(carLadaVesta);
+
         try {
             busMagic.getDiagnostics(sidorovSidr);
         } catch (UnsupportedOperationException e) {
@@ -73,7 +79,32 @@ public class Main {
         carLadaVesta.start(ivanovIvan);
         busMagic.start(sidorovSidr);
 
+        Mechanics mechMech = new Mechanics("Механикус Механ");
+        mechMech.setCompany("Первая мехническая");
 
+        Mechanics superMech = new Mechanics("Супер Механ");
+        superMech.setCompany("Вторая мехническая");
+
+        List<Mechanics> mechanics = new ArrayList<Mechanics>();
+        mechanics.add(mechMech);
+        mechanics.add(superMech);
+
+        carLadaGranta.getmechanics();
+        carLadaGranta.setMechanics(mechanics);
+        carLadaGranta.getmechanics();
+
+        carLadaVesta.getDriver();
+        carLadaVesta.stop();
+        carLadaVesta.getDriver();
+
+        ServiceStation firstST = new ServiceStation();
+        firstST.addQueue(truckManM1);
+        firstST.addQueue(carLadaVesta);
+        firstST.addQueue(busMagic);
+
+        firstST.makeMantance();
+        firstST.makeMantance();
+        firstST.makeMantance();
 
     }
 

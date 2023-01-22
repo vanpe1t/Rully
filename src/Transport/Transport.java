@@ -2,13 +2,35 @@ package Transport;
 
 import Drivers.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Transport<A extends Driver> {
-
     private final String brand;
     private final String model;
     private final double engineValue;
+    private List<Mechanics> mechanics;
+
+    private Driver driver;
+
+    public void getDriver() {
+        if (driver != null) {
+            System.out.println(driver);
+        } else {
+            System.out.println("Сейчас за рулем транспортного средства нет водителя !");
+        }
+    }
+
+    public void getmechanics() {
+        if (mechanics != null && mechanics.size() > 0) {
+            for (Mechanics mechanic : mechanics) {
+                System.out.println(mechanic);
+            }
+        } else {
+            System.out.println("За транспортом не назначена команда механников !");
+        }
+    }
 
     public Transport(String brand, String model, double engineValue) {
         this.brand = brand;
@@ -17,14 +39,15 @@ public class Transport<A extends Driver> {
     }
 
     public void start(A driver) {
-
+        this.driver = driver;
         System.out.println("Водитель " + driver.getName() + " управляет транспортным средством типа: " + getTransportType(driver)
                     + ", марки: " + getBrand() + ", модель: " +  getModel() + " и будет участвовать в заезде");
     }
 
-    public void stop(A driver) {
+    public void stop() {
         System.out.println("Водитель " + driver.getName() + " закончил управлять транспортным средством типа: " + getTransportType(driver)
                 + ", марки: " + getBrand() + ", модель: " +  getModel() + " и будет участвовать в заезде");
+        this.driver = null;
     }
 
     private String getTransportType(Driver driver) {
@@ -53,6 +76,22 @@ public class Transport<A extends Driver> {
         System.out.println("Транспорт " + getTransportType(driver) + " " + getBrand() + " " + getModel() + " проходит диагностику!");
     }
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public double getEngineValue() {
+        return engineValue;
+    }
+
+    public void setMechanics(List mechanics) {
+        this.mechanics = mechanics;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -64,18 +103,6 @@ public class Transport<A extends Driver> {
     @Override
     public int hashCode() {
         return Objects.hash(brand, model, engineValue);
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public double getEngineValue() {
-        return engineValue;
     }
 
     @Override
