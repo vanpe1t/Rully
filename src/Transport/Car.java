@@ -26,6 +26,12 @@ public class Car extends Transport<DriverB> implements Competing {
             System.out.println("Данных по транспортному средству недостаточно");
         }
     }
+    
+    @Override
+    public void getDiagnostics(Driver driver) throws CantGetDiagnostic{
+        super.getDiagnostics(driver);
+    }
+
     @Override
     public void pitStop() {
         System.out.println("Автомобиль " + super.getBrand() + " " +  super.getModel() + " заехал на пит-стоп.");

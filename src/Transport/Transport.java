@@ -44,6 +44,15 @@ public class Transport<A extends Driver> {
         return transportType;
     }
 
+    public void getDiagnostics(Driver driver) throws CantGetDiagnostic {
+
+        if (driver.getLicensType() == null) {
+             throw new UnsupportedOperationException("У воддителя " + driver.getName() + " не выбрана категория прав!");
+        }
+
+        System.out.println("Транспорт " + getTransportType(driver) + " " + getBrand() + " " + getModel() + " проходит диагностику!");
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,15 +1,17 @@
-import Drivers.DriverB;
-import Drivers.DriverC;
-import Drivers.DriverD;
+import Drivers.*;
 import Transport.*;
-import com.sun.source.tree.NewArrayTree;
 
 public class Main {
     public static void main(String[] args) {
 
         DriverC petrovPetr = new DriverC("Петров Петр", true, 10);
+        petrovPetr.setLicensType(LicensType.LICENS_TYPE_C);
         DriverB ivanovIvan = new DriverB("Иванов Иван", true, 5);
+        ivanovIvan.setLicensType(LicensType.LICENS_TYPE_B);
         DriverD sidorovSidr = new DriverD("Сидоров Сидр", true, 25);
+        sidorovSidr.setLicensType(LicensType.LICENS_TYPE_D);
+        DriverC pupkinIvan = new DriverC("Пупкин Иван", true, 25);
+
 
         Truck truckManM1 = new Truck("Man", "M1", 500);
         truckManM1.setType(Tonnage.N1);
@@ -33,7 +35,6 @@ public class Main {
         Bus busMagic = new Bus("Magic", "Magic", 10000000);
         System.out.println(busMagic);
 
-
         Car carLadaGranta = new Car("Lada", "Granta", 150);
         System.out.println(carLadaGranta);
         carLadaGranta.setType(BodyType.SEDAN);
@@ -44,9 +45,36 @@ public class Main {
         System.out.println(carLadaKalina);
         Car carLadaVesta = new Car("Lada", "Vesta", 150);
         System.out.println(carLadaVesta);
+        try {
+            busMagic.getDiagnostics(sidorovSidr);
+        } catch (UnsupportedOperationException e) {
+            System.out.println(e.getMessage());
+        } catch (CantGetDiagnostic e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            carLadaGranta.getDiagnostics(ivanovIvan);
+        } catch (UnsupportedOperationException e) {
+            System.out.println(e.getMessage());
+        } catch (CantGetDiagnostic e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            truckBelaz.getDiagnostics(pupkinIvan);
+        } catch (UnsupportedOperationException e) {
+            System.out.println(e.getMessage());
+        } catch (CantGetDiagnostic e) {
+            System.out.println(e.getMessage());
+        }
 
         truckManM1.start(petrovPetr);
         carLadaVesta.start(ivanovIvan);
         busMagic.start(sidorovSidr);
+
+
+
     }
+
 }

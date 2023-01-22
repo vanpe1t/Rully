@@ -29,6 +29,11 @@ public class Bus extends Transport<DriverD> implements Competing {
     }
 
     @Override
+    public void getDiagnostics(Driver driver) throws CantGetDiagnostic{
+        throw new CantGetDiagnostic("Автобусы не могут проходить диагностику !");
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Автобус " + super.getBrand() + " " +  super.getModel() + " заехал на пит-стоп.");
     }

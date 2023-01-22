@@ -6,6 +6,8 @@ public class Driver {
     private String name;
     private boolean haveLicense;
     private int experience;
+    private LicensType licensType;
+
 
     public Driver(String name, boolean haveLicense, int experience) {
         this.name = name;
@@ -35,6 +37,14 @@ public class Driver {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    public void setLicensType(LicensType licensType) {
+        this.licensType = licensType;
+    }
+
+    public LicensType getLicensType() {
+        return licensType;
     }
 
     public String getName() {

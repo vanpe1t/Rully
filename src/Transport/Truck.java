@@ -37,6 +37,11 @@ public class Truck extends Transport<DriverC> implements Competing {
     }
 
     @Override
+    public void getDiagnostics(Driver driver) throws CantGetDiagnostic{
+        super.getDiagnostics(driver);
+    }
+
+    @Override
     public void maxSpeed() {
         System.out.println("Грузовик " + super.getBrand() + " " +  super.getModel() + " максимальная скорость");
     }
