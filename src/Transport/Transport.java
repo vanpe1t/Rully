@@ -22,7 +22,7 @@ public class Transport<A extends Driver> {
         }
     }
 
-    public void getmechanics() {
+    public void getMechanics() {
         if (mechanics != null && mechanics.size() > 0) {
             for (Mechanics mechanic : mechanics) {
                 System.out.println(mechanic);

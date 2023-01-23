@@ -8,13 +8,13 @@ public class Mechanics {
 
     private String company;
 
-    public void FixVehicle(Transport... transports) {
+    public void fixVehicle(Transport... transports) {
         for (Transport transport : transports) {
             System.out.println("Починяем " + transport.getModel() + " " + transport.getBrand());
         }
     }
 
-    public void MaintenanceService(Transport... transports) {
+    public void maintenanceService(Transport... transports) {
         for (Transport transport : transports) {
             System.out.println("Проводим тех. обслуживание " + transport.getModel() + " " + transport.getBrand());
         }

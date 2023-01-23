@@ -89,9 +89,9 @@ public class Main {
         mechanics.add(mechMech);
         mechanics.add(superMech);
 
-        carLadaGranta.getmechanics();
+        carLadaGranta.getMechanics();
         carLadaGranta.setMechanics(mechanics);
-        carLadaGranta.getmechanics();
+        carLadaGranta.getMechanics();
 
         carLadaVesta.getDriver();
         carLadaVesta.stop();
