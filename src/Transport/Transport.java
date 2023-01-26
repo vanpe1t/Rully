@@ -4,13 +4,15 @@ import Drivers.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class Transport<A extends Driver> {
     private final String brand;
     private final String model;
     private final double engineValue;
-    private List<Mechanics> mechanics;
+    //private List<Mechanics> mechanics;
+    private Map<Transport, Mechanics> mechanics;
 
     private Driver driver;
 
@@ -24,8 +26,11 @@ public class Transport<A extends Driver> {
 
     public void getMechanics() {
         if (mechanics != null && mechanics.size() > 0) {
-            for (Mechanics mechanic : mechanics) {
-                System.out.println(mechanic);
+            Mechanics mech = mechanics.get(this);
+            if (mech != null) {
+                System.out.println("Автомобиль " + this.getBrand() + " " + this.getModel() + " обслуживается механником " + mech);
+            } else {
+                System.out.println("В списке механников, нет механника для автомобиля " + this.getBrand() + " " + this.getModel());
             }
         } else {
             System.out.println("За транспортом не назначена команда механников !");
@@ -88,7 +93,7 @@ public class Transport<A extends Driver> {
         return engineValue;
     }
 
-    public void setMechanics(List mechanics) {
+    public void setMechanics(Map mechanics) {
         this.mechanics = mechanics;
     }
 

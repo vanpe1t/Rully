@@ -3,6 +3,7 @@ import Transport.*;
 import com.sun.source.tree.NewArrayTree;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Queue;
 
@@ -85,13 +86,17 @@ public class Main {
         Mechanics superMech = new Mechanics("Супер Механ");
         superMech.setCompany("Вторая мехническая");
 
-        List<Mechanics> mechanics = new ArrayList<Mechanics>();
-        mechanics.add(mechMech);
-        mechanics.add(superMech);
+        HashMap<Transport, Mechanics> mechanics = new HashMap<Transport, Mechanics>();
+        mechanics.put(carLadaGranta, mechMech);
+        mechanics.put(carLadaGranta, superMech);
 
-        carLadaGranta.getMechanics();
+        //carLadaGranta.getMechanics();
+
         carLadaGranta.setMechanics(mechanics);
-        carLadaGranta.getMechanics();
+
+       // carLadaGranta.getMechanics();
+        carLadaVesta.setMechanics(mechanics);
+        carLadaVesta.getMechanics();
 
         carLadaVesta.getDriver();
         carLadaVesta.stop();
