@@ -11,7 +11,6 @@ public class Transport<A extends Driver> {
     private final String brand;
     private final String model;
     private final double engineValue;
-    //private List<Mechanics> mechanics;
     private Map<Transport, Mechanics> mechanics;
 
     private Driver driver;
