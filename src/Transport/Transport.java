@@ -92,7 +92,7 @@ public class Transport<A extends Driver> {
         return engineValue;
     }
 
-    public void setMechanics(Map mechanics) {
+    public void setMechanics(Map<Transport, Mechanics> mechanics) {
         this.mechanics = mechanics;
     }
 
