@@ -2,10 +2,7 @@ import Drivers.*;
 import Transport.*;
 import com.sun.source.tree.NewArrayTree;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,6 +14,21 @@ public class Main {
         DriverD sidorovSidr = new DriverD("Сидоров Сидр", true, 25);
         sidorovSidr.setLicensType(LicensType.LICENS_TYPE_D);
         DriverC pupkinIvan = new DriverC("Пупкин Иван", true, 25);
+
+        HashSet<Driver> driversList =  new HashSet<>();
+        driversList.add(petrovPetr);
+        driversList.add(petrovPetr);
+        driversList.add(sidorovSidr);
+        driversList.add(pupkinIvan);
+
+        Iterator<Driver> iter = driversList.iterator();
+
+        System.out.println();
+        System.out.println("Итерация списка множества: ");
+        while (iter.hasNext()) {
+            System.out.println(iter.next());
+        }
+        System.out.println();
 
 
         Truck truckManM1 = new Truck("Man", "M1", 500);
